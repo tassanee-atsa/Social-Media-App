@@ -27,3 +27,10 @@ app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
 app.use(morgan("common"));
+//if we have issue we can extend: true
+app.use(bodyParser.json({limit: "30mb", extended: true}));
+app.use(bodyParser.urlencoded({limit: "30mb", extended: true }));
+//invoke cross origin region sharing policies.
+app.use(cors());
+//set the directory of where we keep an asset.In our case,they are images, we will store images locally (or cloud storage like S3)
+app.use("/asset", express.static(path.join(__dirname, "public/assets")))
