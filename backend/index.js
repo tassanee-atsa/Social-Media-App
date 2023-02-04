@@ -34,3 +34,14 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true }));
 app.use(cors());
 //set the directory of where we keep an asset.In our case,they are images, we will store images locally (or cloud storage like S3)
 app.use("/asset", express.static(path.join(__dirname, "public/assets")))
+
+/* File Storage */
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/assets");
+    },
+    filename: function (reg, file, cb) {
+        cb(null, file.originalname);
+    }
+})
+const upload = multer({ storage });
