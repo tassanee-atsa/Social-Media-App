@@ -9,3 +9,7 @@ import morgan from "morgan";
 //these 2 paths from native packages will allow us to properly set the path when configure directory
 import path from "path"; //come with node, we don't need to install it"
 import { fileURLToPath } from "url";
+
+/*CONFIGURATIONS*/
+//this configuration below will include all middleware configurations, also different package configurations.
+//middleware is something run between different requests.
