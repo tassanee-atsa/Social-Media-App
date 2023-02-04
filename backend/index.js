@@ -13,3 +13,11 @@ import { fileURLToPath } from "url";
 /*CONFIGURATIONS*/
 //this configuration below will include all middleware configurations, also different package configurations.
 //middleware is something run between different requests.
+
+//declare new variable filename to gab the url, specifically when we use the module.
+const __filename = fileURLToPath(import.meta.url);
+//use this directory configuration only when you use type: module
+const __dirname = path.dirname(__filename);
+//invoke env so that we can use dotenv file
+dotenv.config();
+
