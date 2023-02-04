@@ -45,3 +45,12 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage });
+
+/* MONGOOSE DB SET UP */
+// In case process.env.PORT does not work , go to port 6001
+const PORT = process.env.PORT || 6001;
+//connect the actual database from node server
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParse : true,
+    useUnifiedTopology : true,
+})
