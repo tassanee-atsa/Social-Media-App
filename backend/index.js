@@ -21,3 +21,9 @@ const __dirname = path.dirname(__filename);
 //invoke env so that we can use dotenv file
 dotenv.config();
 
+//invoke express so we can use middleware
+const app = express();
+app.use(express.json());
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
+app.use(morgan("common"));
