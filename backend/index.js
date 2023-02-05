@@ -48,9 +48,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ROUTES WITH FILES */
-//call API from the frontend, use middleware to upload local picture to public/assets folder. 
+//call API from the frontend, use middleware to upload a local pictures to the public/assets folder. 
 //it is middleware that is in between and run before it hit the end point login/register (logic that save the user into DB)
-//also going create register controller.
+//also we are going to create a register controller.
 app.post("/auth/register", upload.single("picture", register));
 
 /* MONGOOSE DB SET UP */
