@@ -27,7 +27,14 @@ export const register = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, salt);
 
         const newUser = new User({
-
+            firstName, 
+            lastName,
+            email,
+            password,
+            picturePath,
+            friends,
+            location,
+            occupation,
         })
     } catch (err) {
 
