@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema(
     viewedProfile: Number,
     impressions: Number,
   },
-  { timestamps: true },
+  { timestamps: true },//to give us autometic timestamp to when it was created or updated.
 );
 
 const User = mongoose.model("User", UserSchema);
