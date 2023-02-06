@@ -23,12 +23,17 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     min: 5,
-    unique: true, // you can not have duplicate email
   },
-  email: {
+  picturePath: {
     type: String,
     default: " ",
-  
   },
-
-});
+  friends: {
+    type: Array,
+    default: []
+  },
+  location: String,
+  occupations: String,
+  viewedProfile: Number,
+  impressions: Number,
+}, );
