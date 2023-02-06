@@ -25,6 +25,10 @@ export const register = async (req, res) => {
 //We will create random salt provided by bcrypt
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
+
+        const newUser = new User({
+
+        })
     } catch (err) {
 
     }
