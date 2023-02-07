@@ -1,6 +1,6 @@
 //bcrypt allows us to encrypt user passwords
 import bcrypt from "bcrypt";
-//Jwt give us a way to send user a web token that they can use for an authorisation.
+//Jwt give us a way to send users a web token that they can use for an authorisation.
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
@@ -22,11 +22,11 @@ export const register = async (req, res) => {
             location,
             occupation
         } = req.body ;
-//We will create random salt provided by bcrypt. Then we will use salt to encript the password
+//We will create random salt provided by bcrypt. Then we will use salt to encrypt the password
 //
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
-//We will encrypt the password. The we save it. When the user log in, they will provide password.
+//We will encrypt the password. The we save it. When users log in, they will provide password.
 //Then we will salt that again. We will ensure it is the correct one. Then we will send json webtoken.
 //
         const newUser = new User({
@@ -44,6 +44,6 @@ export const register = async (req, res) => {
         const savedUser = await newUser.save(); //To save the user
         res.status(201).json(savedUser); //If above does not error out, we will send the user status 201 with json saveUser
     } catch (err) {
-      res.status(500).json({error: err.message}); //response message to the frontend if anything goes wrong
+      res.status(500).json({error: err.message}); //response message (whatever Moongoose return) to the frontend if anything goes wrong
     }
 };
