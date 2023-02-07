@@ -22,23 +22,28 @@ export const register = async (req, res) => {
             location,
             occupation
         } = req.body ;
-//We will create random salt provided by bcrypt
+//We will create random salt provided by bcrypt. Then we will use salt to encript the password
+//
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
-
+//We will encrypt the password. The we save it. When the user log in, they will provide password.
+//Then we will salt that again. We will ensure it is the correct one. Then we will send json webtoken.
+//
         const newUser = new User({
             firstName, 
             lastName,
             email,
-            password,
+            password : passwordHash, //use store passwordHush instead of real password.
             picturePath,
             friends,
             location,
             occupation,
             viewProfile: Math.floor(Math.random()*10000),
             impressions: Math.floor(Math.random()*10000),
-        })
+        });
+        const savedUser = await newUser.save();
+        res.status(201).json(savedUser);
     } catch (err) {
-
+      res.status(500).json({error: err.message}); //response message to the frontend if anything goes wrong
     }
-}
+};
