@@ -8,7 +8,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 //these 2 paths from native packages will allow us to properly set the path when configure directory
 import path from "path"; //come with node, we don't need to install it"
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "url"
+import authRoutes from "./routes/auth.js";
 import { register } from "./controllers/auth.js";
 
 /*CONFIGURATIONS*/
@@ -52,6 +53,9 @@ const upload = multer({ storage });
 //it is middleware that is in between and run before it hit the end point login/register (logic that save the user into DB)
 //also we are going to create a register controller.
 app.post("/auth/register", upload.single("picture", register));
+
+/* ROUTES */
+app.use("/auth", authRoutes)
 
 /* MONGOOSE DB SET UP */
 // In case process.env.PORT does not work , go to port 6001
