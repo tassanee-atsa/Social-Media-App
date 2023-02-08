@@ -48,25 +48,26 @@ export const register = async (req, res) => {
     }
 };
 
-/* LOGGING IN */
+/* LOGGING IN (Authentication) */ 
 export const login = async (req, res) => {
     try {
-        const { email, password } = req.body; //destructuring email and passward from req.body when the user tries to log in
-        //To find one email that match the user log in with User in DB. Then bring all the user detail.
+        const { email, password } = req.body; //destructuring email and password from req.body when the user tries to log in
+        //To find one email that matches the user login with User in DB. Then bring all the user details.
         const user = await User.findOne({ email: email });
-        //If the user give the email address that is not valid, response with below message.
+        //If the user gives the email address that is not valid, respond with the below message.
         if (!user) return res.status(400).json({ msg: "User does not exist. "});
 
-        //Use bcrypt to compare the password that user give and the user.password that was saved. 
+        //Use bcrypt to compare the password that user gave and the user.password that was saved. 
         //Use the same salt method to see if the hash passwords are matched.
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ msg: "Invalid credentials. "})
 
+        //Use token for user validation
         const token = jwt.sign({ id: user._id } , process.env.JWT_SECRET);
-        //Then we want to delete password so that it does not get to send back to frontend.
+        //Then we want to delete a password so that it does not get sent back to frontend.
         delete user.password;
         res.status(200).json({ token, user });
-        
+
     } catch (err) {
         res.status(500).json({ error: err.message })
     }
