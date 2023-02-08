@@ -10,7 +10,7 @@ import { verifyToken } from "../middleware.auth.js";
 const router = express.Router();
 
 /* READ */
-router.get("/:id", verifyToken, getUser) //Query string: If the frontend send data with this id, we can use this id to call the DB.
+router.get("/:id", verifyToken, getUser) //Query string: If the frontend sends data with this id, we can use this id to call the DB.
 router.get('/:id/friends', verifyToken, getUserFriends);
 
 /* UPDATE */
