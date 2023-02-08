@@ -10,6 +10,7 @@ import morgan from "morgan";
 import path from "path"; //come with node, we don't need to install it"
 import { fileURLToPath } from "url"
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
 import { register } from "./controllers/auth.js";
 
 /*CONFIGURATIONS*/
@@ -48,6 +49,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage });
 
+
 /* ROUTES WITH FILES */
 //call API from the frontend, use middleware to upload a local pictures to the public/assets folder. 
 //it is middleware that is in between and run before it hit the end point login/register (logic that save the user into DB)
@@ -56,6 +58,7 @@ app.post("/auth/register", upload.single("picture", register));
 
 /* ROUTES */
 app.use("/auth", authRoutes)
+app.use("/users", userRoutes);
 
 /* MONGOOSE DB SET UP */
 // In case process.env.PORT does not work , go to port 6001
