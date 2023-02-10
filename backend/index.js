@@ -13,6 +13,7 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import { register } from "./controllers/auth.js";
+import { verifyToken } from "./middleware/auth.js";
 
 /*CONFIGURATIONS*/
 //this configuration below will include all middleware configurations, also different package configurations.
@@ -56,6 +57,7 @@ const upload = multer({ storage });
 //it is middleware that is in between and run before it hit the end point login/register (logic that save the user into DB)
 //also we are going to create a register controller.
 app.post("/auth/register", upload.single("picture", register));
+app.post("/posts", verifyToken)
 
 /* ROUTES */
 app.use("/auth", authRoutes)
