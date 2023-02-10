@@ -59,6 +59,7 @@ app.post("/auth/register", upload.single("picture", register));
 /* ROUTES */
 app.use("/auth", authRoutes)
 app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
 /* MONGOOSE DB SET UP */
 // In case process.env.PORT does not work , go to port 6001
