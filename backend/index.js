@@ -57,7 +57,7 @@ const upload = multer({ storage });
 //it is middleware that is in between and run before it hit the end point login/register (logic that save the user into DB)
 //also we are going to create a register controller.
 app.post("/auth/register", upload.single("picture", register));
-app.post("/posts", verifyToken)
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 /* ROUTES */
 app.use("/auth", authRoutes)
