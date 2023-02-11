@@ -13,6 +13,7 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import { register } from "./controllers/auth.js";
+import { createPost } from './controllers/posts.js';
 import { verifyToken } from "./middleware/auth.js";
 
 /*CONFIGURATIONS*/
@@ -58,6 +59,7 @@ const upload = multer({ storage });
 //also we are going to create a register controller.
 app.post("/auth/register", upload.single("picture", register));
 app.post("/posts", verifyToken, upload.single("picture"), createPost); //picture property is where the image is located in http call , this will grab it and upload into the local
+//have to make sure has the same 'picture' property
 
 /* ROUTES */
 app.use("/auth", authRoutes)
