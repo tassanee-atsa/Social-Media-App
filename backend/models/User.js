@@ -41,7 +41,7 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true },//to give us automatic timestamps to when it was created or updated.
   //Mongoose will add two properties of type date : createdAt and updatedAt (whenever you update the document
   //using save(), updateOne(), updateMany(), findOneAndUpdate(), update(), replaceOne(), or bulkWrite())
-);
+); // or it can be userSchema.set('timestamps', true)
 
 const User = mongoose.model("User", UserSchema);
 export default User;
