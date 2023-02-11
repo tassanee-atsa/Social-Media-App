@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 //const {schema } = mongoose; //ref: mongoose website
 const UserSchema = new mongoose.Schema(
   {
-    firstName: {
+    //nested objects containing further key/type 
+    firstName: { 
       type: String,
       required: true,
       min: 2, //min 2 value
@@ -33,7 +34,7 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    location: String,
+    location: String, //Define property location which will cast to the String SchemaType
     occupation: String,
     viewedProfile: Number,
     impressions: Number,
@@ -46,4 +47,7 @@ const UserSchema = new mongoose.Schema(
 const User = mongoose.model("User", UserSchema);
 export default User;
 
+//Everything in Mongoose start with Schema, each Schema maps to a MongoDB collection and defines the shape of the documents within that collection
 //if we want to add additional keys later, use Schema add method ex. UserSchema.add({name: 'string', color: 'string,})
+
+//By default, Mongoose add _id property to your Schema
