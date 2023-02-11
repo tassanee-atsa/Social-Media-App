@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-
+//const {schema } = mongoose; //ref: mongoose website
 const UserSchema = new mongoose.Schema(
   {
     firstName: {
@@ -45,3 +45,5 @@ const UserSchema = new mongoose.Schema(
 
 const User = mongoose.model("User", UserSchema);
 export default User;
+
+//if we want to add additional keys later, use Schema add method ex. UserSchema.add({name: 'string', color: 'string,})
