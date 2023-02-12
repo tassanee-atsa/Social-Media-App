@@ -8,4 +8,7 @@ const router = express.Router();
 router.get('/', verifyToken, getFeedPosts);
 
 /* USER POSTS */
-router.get('/user', verifyToken, getUserPosts)
+router.get('/user', verifyToken, getUserPosts);
+
+/* LIKE POST */
+router.put(`/${postId}/like`, verifyToken, likePost);
