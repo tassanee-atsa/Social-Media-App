@@ -6,9 +6,3 @@ const router = express.Router();
 
 /* READ */
 router.get('/', verifyToken, getFeedPosts);
-
-/* USER POSTS */
-router.get('/:id', verifyToken, getUserPosts);
-
-/* LIKE POST */
-router.put(`/:id}/like`, verifyToken, likePost);
