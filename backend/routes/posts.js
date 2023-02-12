@@ -7,3 +7,5 @@ const router = express.Router();
 /* READ */
 router.get('/', verifyToken, getFeedPosts);
 
+/* USER POSTS */
+router.get('/user', verifyToken, getUserPosts)
