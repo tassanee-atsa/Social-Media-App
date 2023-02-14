@@ -16,6 +16,8 @@ export const getUserFriends = async (req, res) => {
         const { id } = req.params;
         const user = await User.findById(id);
 
+        //Promise.all returns a single promise. The returned promise fulfills when all input's promises fullfill.
+        //It rejects if any of the input's promises rejects.
         const friends = await Promise.all(
             user.friends.map((id) => User.findById(id))
         );
