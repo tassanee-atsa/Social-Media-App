@@ -18,6 +18,8 @@ const postSchema = mongoose.Schema(
         description: String,
         picturePath: String,
         userPicturePath: String,
+        //Type Map or MongooseMap is a subclass of Js map class. keys must be strings in order to store 
+        //the document in MongoDB
         likes: {
             type: Map,
             of: Boolean,
