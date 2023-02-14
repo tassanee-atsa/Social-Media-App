@@ -57,9 +57,9 @@ export const likePost = async (req, res) => {
         const isLiked = post.likes.get(userId);
 
         if (isLiked) {
-            post.likes.delete(userId)
+            post.likes.delete(userId) //If there is the userId in the like post, remove the userId.
         } else {
-            post.likes.set(userId, true);
+            post.likes.set(userId, true); //If can not find the userId, add the userId to the like post.
         };
 
         const updatedPost = await Post.findByIdAndUpdate(id, { likes: post.likes}, { new: true})
