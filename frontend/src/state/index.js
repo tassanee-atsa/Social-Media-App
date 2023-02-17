@@ -32,7 +32,10 @@ export const authSlice = createSlice({
             } else {
                 console.error('user friends non-existent')
             }
+        },
 
-        }
+        setPosts: (state, action) => {
+            state.posts = action.payload.posts;
+        },
     }
 })
