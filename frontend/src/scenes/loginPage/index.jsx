@@ -1,6 +1,6 @@
 import React from 'react'
-
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material'
+import Form from '/form'
 
 const LoginPage = () => {
   const theme = useTheme
@@ -27,6 +27,7 @@ const LoginPage = () => {
         <Typography fontWeight= '500' variant= 'h5' sx={{ mb: '1.5rem'}}>
         Welcome to FriendPage. Start your social network here.
         </Typography>
+        <Form />
       </Box>
     </Box>
   )
