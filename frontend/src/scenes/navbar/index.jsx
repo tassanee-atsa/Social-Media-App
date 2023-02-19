@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   IconButton,
@@ -21,9 +21,9 @@ import {
   Close,
 } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
-import { setMode, setLogout } from 'state'
+import { setMode, setLogout } from '../../state'
 import { useNavigate } from 'react-router-dom'
-import FlexBetween from './components/Flexbetween'
+import FlexBetween from '../../components/FlexBetween'
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false) //Use this value to determine if we want to open up
@@ -40,7 +40,8 @@ const Navbar = () => {
   const primaryLight = theme.palette.primary.light
   const alt = theme.palette.background.alt
 
-  const fullName = `${user.firstName} ${user.lastname}`
+//   const fullName = `${user.firstName} ${user.lastName}`
+const fullName = 'Tassanee'
   // Only available to the box component
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -68,9 +69,9 @@ const Navbar = () => {
             padding="0.1rem 1.5rem" //Short-hand for 0.1 top and buttom, 1.5rem for right and left.
           >
             <InputBase placeholder="Search..." />
-            <IconBase>
+            <InputBase>
               <Search />
-            </IconBase>
+            </InputBase>
           </FlexBetween>
         )}
       </FlexBetween>
@@ -86,7 +87,7 @@ const Navbar = () => {
             )}
           </IconButton>
           <Message sx={{ fontSize: '25px' }} />
-          <Notification sx={{ fontSize: '25px' }} />
+          <Notifications sx={{ fontSize: '25px' }} />
           <Help sx={{ fontSize: '25px' }} />
           {/* We can see the user log in and log out. */}
           <FormControl variant="standard" value={fullName}>
@@ -158,7 +159,7 @@ const Navbar = () => {
               )}
             </IconButton>
             <Message sx={{ fontSize: '25px' }} />
-            <Notification sx={{ fontSize: '25px' }} />
+            <Notifications sx={{ fontSize: '25px' }} />
             <Help sx={{ fontSize: '25px' }} />
             {/* We can see the user log in and log out. */}
             <FormControl variant="standard" value={fullName}>
