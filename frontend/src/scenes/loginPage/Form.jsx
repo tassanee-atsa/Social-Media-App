@@ -13,5 +13,15 @@ import * as yup from 'yup'; // Form validation library
 import { useNavigate } from 'react-router-dom'; 
 import { useDispatch } from 'react-redux'; //To store user information
 import { setLogin } from 'state';
-import DropZone from 'react-dropZone'; // For dropping the files, let the user put the image, to upload the files.
+import Dropzone from 'react-dropzone'; // For dropping the files, let the user put the image, to upload the files.
 import Flexbetween from 'components/FlexBetween';
+
+const registerSchema = yup.object().shape({
+    firstName: yup.string().required('required'),
+    lastName: yup.string().required('required'),
+    email: yup.string().email('invalid email').required('required'),
+    password: yup.string().required('required'),
+    location: yup.string().required('required'),
+    occupation: yup.string().required('required'),
+    picture: yup.string().required('required')
+})
