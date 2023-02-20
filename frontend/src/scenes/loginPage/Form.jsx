@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react'
 import {
   Box,
@@ -12,9 +13,10 @@ import { Formik } from 'formik' // Form library
 import * as yup from 'yup' // Form validation library
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux' //To store user information
-import { setLogin } from 'state'
+// import { setLogin } from 'state'
 import Dropzone from 'react-dropzone' // For dropping the files, let the user put the image, to upload the files.
-import FlexBetween from 'components/FlexBetween'
+import FlexBetween from '../../components/FlexBetween';
+import { setLogin } from '../../state';
 
 //Form validation
 const registerSchema = yup.object().shape({
@@ -49,7 +51,7 @@ const initialValuesLogin = {
 
 const Form = () => {
   const [pageType, setPageType] = useState('login')
-  const { palette } = useTheme
+  const { palette } = useTheme()
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isNonMobile = useMediaQuery('(min-width: 600px)')
@@ -79,7 +81,27 @@ const Form = () => {
       setPageType('login')
     }
   }
-  
+
+  const login = async (values, onSubmitProps) => {
+    const loggedInResponse = await fetch('http://localhost:3001/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values),
+    })
+    const loggedIn = await loggedInResponse.json()
+    onSubmitProps.resetForm()
+    //If Api call has successed and the user has successed the auth authenticate
+    if (loggedIn) {
+      dispatch(
+        setLogin({
+          user: loggedIn.user, //To pass in a payload, it has to be passed in object : Redux toolkit
+          token: loggedIn.token,
+        })
+      );
+      navigate('/home');
+    }
+  }
+
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps)
     if (isRegister) await register(values, onSubmitProps)
@@ -95,6 +117,7 @@ const Form = () => {
         values,
         errors,
         touched,
+        handleBlur,
         handleChange,
         handleSubmit,
         setFieldValue,
@@ -253,6 +276,7 @@ const Form = () => {
           </Box>
         </form>
       )}
+
     </Formik>
   )
 }

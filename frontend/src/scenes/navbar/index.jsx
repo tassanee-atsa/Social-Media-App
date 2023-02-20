@@ -47,7 +47,7 @@ const fullName = 'Tassanee'
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
       <FlexBetween gap="1.75rem">
         <Typography
-          fontWeigh="bold"
+          fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)" // 1rem is a minimum value for the font if screen size is too small,
           // 2.25 is max if screen size is too big, 2rem is a preferred value
           color="primary"

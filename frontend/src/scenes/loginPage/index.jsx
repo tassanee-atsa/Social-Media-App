@@ -1,10 +1,11 @@
 import React from 'react'
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material'
+import Form from './Form'
 
 
 
 const LoginPage = () => {
-  const theme = useTheme
+  const theme = useTheme()
   const isNonMobileScreens = useMediaQuery('(min-width: 1000px)')
   return (
     <Box>
@@ -14,7 +15,7 @@ const LoginPage = () => {
         p="1rem 6%"
         textAlign="center"
       >
-        <Typography fontWeigh="bold" fontSize="32px" color="primary">
+        <Typography fontWeight="bold" fontSize="32px" color="primary">
           Friendpage
         </Typography>
       </Box>
@@ -23,12 +24,14 @@ const LoginPage = () => {
         p='2rem'  
         m='2rem auto'
         borderRadius= '1.5rem'
-        backgroundColor= {theme.pallette.background.alt}
+        backgroundColor= {theme.palette.background.alt}
         >
         <Typography fontWeight= '500' variant= 'h5' sx={{ mb: '1.5rem'}}>
         Welcome to FriendPage. Start your social network here.
-        </Typography>
-       
+        </Typography> 
+      </Box>
+      <Box>
+      <Form></Form>
       </Box>
     </Box>
   )
