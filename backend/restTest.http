@@ -7,7 +7,7 @@ content-type: application/json
 #     "firstName": "test",
 #     "lastName": "me",
 #     "email": "aaaaaaa@gmail.com",
-#     "password": "helloooooo",
+#     
 #     "picturePath": "pic1.jpeg",
 #     "friends": [],
 #     "location": "San Fran, CA",
