@@ -59,7 +59,7 @@ const upload = multer({ storage })
 //call API from the frontend, use middleware to upload a local pictures to the public/assets folder.
 //it is middleware that is in between and run before it hit the end point login/register (logic that save the user into DB)
 //also we are going to create a register controller.
-app.post('/auth/register', upload.single('picture', register))
+app.post('/auth/register', upload.single('picture'), register);
 app.post('/posts', verifyToken, upload.single('picture'), createPost) //picture property is where the image is located in http call , this will grab it and upload into the local
 //have to make sure has the same 'picture' property
 
@@ -67,6 +67,13 @@ app.post('/posts', verifyToken, upload.single('picture'), createPost) //picture 
 app.use('/auth', authRoutes)
 app.use('/users', userRoutes)
 app.use('/posts', postRoutes)
+
+app.get("/", function (req, res) {
+  res.json({
+    success: true,
+    message: "Test route up and running!",
+  });
+});
 
 /* MONGOOSE DB SET UP */
 // In case process.env.PORT does not work , go to port 6001
@@ -81,7 +88,7 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
 
     /* ADD DATA ONE TIME */
-    User.insertMany(users);
-    Post.insertMany(posts)
+    //User.insertMany(users);
+    //Post.insertMany(posts)
   })
   .catch((error) => console.log(`${error} did not connect`))

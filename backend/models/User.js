@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 //const {schema } = mongoose; //ref: mongoose website
-const UserSchema = new mongoose.Schema(
-  {
+const UserSchema = new mongoose.Schema({
+  
     //nested objects containing further key/type 
     firstName: { 
       type: String,
@@ -39,10 +39,10 @@ const UserSchema = new mongoose.Schema(
     viewedProfile: Number,
     impressions: Number,
   },
-  { timestamps: true },//to give us automatic timestamps to when it was created or updated.
+  { timestamps: true }//to give us automatic timestamps to when it was created or updated.
   //Mongoose will add two properties of type date : createdAt and updatedAt (whenever you update the document
   //using save(), updateOne(), updateMany(), findOneAndUpdate(), update(), replaceOne(), or bulkWrite())
-); // or it can be userSchema.set('timestamps', true)
+) // or it can be userSchema.set('timestamps', true)
 
 const User = mongoose.model("User", UserSchema);
 export default User;
