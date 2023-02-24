@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { useState } from 'react'
 import {
   Box,
@@ -15,8 +15,8 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux' //To store user information
 // import { setLogin } from 'state'
 import Dropzone from 'react-dropzone' // For dropping the files, let the user put the image, to upload the files.
-import FlexBetween from '../../components/FlexBetween';
-import { setLogin } from '../../state';
+import FlexBetween from '../../components/FlexBetween'
+import { setLogin } from '../../state'
 
 //Form validation
 const registerSchema = yup.object().shape({
@@ -96,15 +96,18 @@ const Form = () => {
         setLogin({
           user: loggedIn.user, //To pass in a payload, it has to be passed in object : Redux toolkit
           token: loggedIn.token,
-        })
-      );
-      navigate('/home');
+        }),
+      )
+      navigate('/home')
     }
   }
 
   const handleFormSubmit = async (values, onSubmitProps) => {
+    console.log('handle Form submit called');
     if (isLogin) await login(values, onSubmitProps)
-    if (isRegister) await register(values, onSubmitProps)
+    if (isRegister) {
+      await register(values, onSubmitProps)
+    }
   }
 
   return (
@@ -244,7 +247,8 @@ const Form = () => {
           {/* BUTTONS */}
           <Box>
             <Button
-              fullWidth="submit"
+              fullWidth
+              type="submit"
               sx={{
                 m: '2rem 0',
                 p: '1rem',
@@ -276,7 +280,6 @@ const Form = () => {
           </Box>
         </form>
       )}
-
     </Formik>
   )
 }
