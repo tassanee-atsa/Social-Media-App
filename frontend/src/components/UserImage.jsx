@@ -1,4 +1,5 @@
-import { Box } from '@mui/meterial';
+import React from 'react';
+import { Box } from '@mui/material';
 
 const UserImage = ({ image, size ='60px'}) => {
     return (
