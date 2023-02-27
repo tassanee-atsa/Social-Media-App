@@ -25,9 +25,10 @@ const UserWidget = ({ userId, picturePath }) => {
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {
       method: 'GET',
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorisation: `Bearer ${token}` },
     })
     const data = await response.json()
+    console.log(data)
     setUser(data)
   }
 
@@ -116,7 +117,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
       {/* FOUR ROW */}
       <Box p="1rem">
-        <Typography fontSize="1rem" color={main} fontweight="500" mb="1rem">
+        <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">
           Social Profiles
         </Typography>
         <FlexBetween gap="1rem" mb="0.5rem">
@@ -149,4 +150,4 @@ const UserWidget = ({ userId, picturePath }) => {
   )
 }
 
-export default UserWidget
+export default UserWidget;
