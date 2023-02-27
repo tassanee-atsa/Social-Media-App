@@ -3,7 +3,6 @@ import {
   EditOutlined,
   DeleteOutlined,
   AttachFileOutlined,
-  AttachFileOutlined,
   GifBoxOutlined,
   ImageOutlined,
   MicOutlined,
@@ -18,21 +17,21 @@ import {
   Button,
   IconButton,
   useMediaQuery,
-} from '@mui/icons-material'
+} from '@mui/material'
 import FlexBetween from '../../components/FlexBetween'
 import Dropzone from 'react-dropzone'
 import UserImage from '../../components/UserImage'
 import WidgetWrapper from '../../components/WidgetWrapper'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setPosts } from 'state'
+import { setPosts } from '../../state'
 
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch()
   const [isImage, setIsImage] = useState(false) //switch the state when a user clicks on an option to drop an image.
   const [image, setImage] = useState(null) // actual image when user drop an image.
   const [post, setPost] = useState('') //The actual post content
-  const { palellte } = useTheme()
+  const { palette } = useTheme()
   const { _id } = useSelector((state) => state.user)
   const token = useSelector((state) => state.token)
   const isNonMobileScreens = useMediaQuery('(min-width: 1000px)')
@@ -62,16 +61,17 @@ const MyPostWidget = ({ picturePath }) => {
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
-        <InputBase placeholder="What is in your mind..." />
-        onChange={(e) => setPost(e.target.value)}
-        value={post}
-        sx=
-        {{
-          width: '100%',
-          backgroundColor: palette.neutral.light,
-          borderRadius: '2rem',
-          padding: '1rem 2 rem',
-        }}
+        <InputBase
+          placeholder="What is in your mind..."
+          onChange={(e) => setPost(e.target.value)}
+          value={post}
+          sx={{
+            width: '100%',
+            backgroundColor: palette.neutral.light,
+            borderRadius: '2rem',
+            padding: '1rem 2 rem',
+          }}
+        />
       </FlexBetween>
       {isImage && (
         <Box
@@ -118,15 +118,57 @@ const MyPostWidget = ({ picturePath }) => {
         </Box>
       )}
 
-      <Divider sx={{ margin: '1.25rem 0'}} />
+      <Divider sx={{ margin: '1.25rem 0' }} />
 
       <FlexBetween>
-      {/* turn off and open image dropzone */}
-        <FlexBetween gap='0.25rem' onClick={()=> setIsImage(!isImage)}>
-        
-
+        {/* turn off and open image dropzone */}
+        <FlexBetween gap="0.25rem" onClick={() => setIsImage(!isImage)}>
+          <ImageOutlined sx={{ color: medium }} />
+          <Typography
+            color={mediumMain}
+            sx={{ '& : hover': { cusor: 'pointer', color: medium } }}
+          >
+            Image
+          </Typography>
         </FlexBetween>
+
+        {isNonMobileScreens ? (
+          <>
+            <FlexBetween gap="0.25">
+              <GifBoxOutlined sx={{ color: mediumMain }} />
+              <Typography color={mediumMain}>Clip</Typography>
+            </FlexBetween>
+
+            <FlexBetween gap="0.25">
+              <AttachFileOutlined sx={{ color: mediumMain }} />
+              <Typography color={mediumMain}>Attachment</Typography>
+            </FlexBetween>
+
+            <FlexBetween gap="0.25">
+              <MicOutlined sx={{ color: mediumMain }} />
+              <Typography color={mediumMain}>Audio</Typography>
+            </FlexBetween>
+          </>
+        ) : (
+          <FlexBetween gap="0.25rem">
+            <MoreHorizOutlined sx={{ color: mediumMain }} />
+          </FlexBetween>
+        )}
+
+        <Button
+          disabled={!post}
+          onClick={handlePost}
+          sx={{
+            color: palette.background.alt,
+            backgroundColor: palette.primary.main,
+            borderRadius: '3rem',
+          }}
+        >
+          POST
+        </Button>
       </FlexBetween>
     </WidgetWrapper>
   )
 }
+
+export default MyPostWidget
