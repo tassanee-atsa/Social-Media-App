@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 //invoke cross origin region sharing policies.
 app.use(cors())
 //set the directory of where we keep an asset.In our case,they are images, we will store images locally (or cloud storage like S3)
-app.use('/asset', express.static(path.join(__dirname, 'public/assets')))
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')))
 
 /* File Storage */
 const storage = multer.diskStorage({
