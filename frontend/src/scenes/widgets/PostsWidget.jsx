@@ -4,18 +4,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setPosts } from '../../state'
 import PostWidget from './PostWidget'
 
-const PostsWidget = (userId, isProfile = false) => {
+const PostsWidget = ({userId, isProfile = false}) => {
+  console.log(userId);
+  console.log('isProfile:', isProfile)
   const dispatch = useDispatch()
   const posts = useSelector((state) => state.posts)
   const token = useSelector((state) => state.token)
 
   const getPosts = async () => {
     const response = await fetch('http://localhost:3001/posts', {
-      methods: 'GET',
-      header: { Authorisation: `Bearer ${token}` },
+      method: 'GET',
+      headers: { Authorisation: `Bearer ${token}` },
     })
 
-    const data = response.json()
+    const data = await response.json()
     dispatch(setPosts({ posts: data }))
   }
 
@@ -23,8 +25,8 @@ const PostsWidget = (userId, isProfile = false) => {
     const response = await fetch(
       `http://localhost:3001/posts/${userId}/posts`,
       {
-        methods: 'GET',
-        header: { Authorisation: `Bearer ${token}` },
+        method: 'GET',
+        headers: { Authorisation: `Bearer ${token}` },
       },
     )
 
@@ -39,6 +41,8 @@ const PostsWidget = (userId, isProfile = false) => {
       getPosts()
     }
   }, []) //eslint-disable-line react-hooks/exausive-deps
+
+  console.log('posts: ', posts);
 
   return (
     <>

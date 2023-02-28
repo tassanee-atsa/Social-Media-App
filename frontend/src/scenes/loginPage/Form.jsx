@@ -75,7 +75,6 @@ const Form = () => {
       },
     )
     const savedUser = await savedUserResponse.json()
-    console.log(savedUser);
     onSubmitProps.resetForm()
 
     if (savedUser) {
@@ -104,7 +103,6 @@ const Form = () => {
   }
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    console.log('handle Form submit called');
     if (isLogin) await login(values, onSubmitProps)
     if (isRegister) {
       await register(values, onSubmitProps)

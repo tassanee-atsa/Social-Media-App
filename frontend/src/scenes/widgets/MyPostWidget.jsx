@@ -53,7 +53,6 @@ const MyPostWidget = ({ picturePath }) => {
       body: formData,
     })
     const posts = await response.json();
-    console.log(posts)
     dispatch(setPosts({ posts }))//To keep the list of posts
     setImage(null) //reset all the state after the api is called.
     setPost('')
