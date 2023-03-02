@@ -75,6 +75,7 @@ const Form = () => {
       },
     )
     const savedUser = await savedUserResponse.json()
+    console.log('checkpicture',savedUser)
     onSubmitProps.resetForm()
 
     if (savedUser) {
@@ -128,6 +129,7 @@ const Form = () => {
         <form onSubmit={handleSubmit}>
           <Box
             display="grid"
+            margin='3rem'
             gap="30px"
             // Split the grid into 4 sections,
             //minimum 0, otherwise will spilt into equal fraction of 4
@@ -246,10 +248,10 @@ const Form = () => {
           {/* BUTTONS */}
           <Box>
             <Button
-              fullWidth
+              fullWidth 
               type="submit"
               sx={{
-                m: '2rem 0',
+                m: '3rem',
                 p: '1rem',
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
@@ -265,6 +267,7 @@ const Form = () => {
               }}
               sx={{
                 textDecoration: 'underline',
+                paddingBottom:'2rem',
                 color: palette.primary.main,
                 '& : hover': {
                   cusor: 'pointer',
@@ -277,6 +280,7 @@ const Form = () => {
                 : 'Already have an account? Login here'}
             </Typography>
           </Box>
+          
         </form>
       )}
     </Formik>

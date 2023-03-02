@@ -97,7 +97,7 @@ const UserWidget = ({ userId, picturePath }) => {
       <Divider />
 
       {/* THIRD ROW */}
-      <Box p="1rem">
+      {/* <Box p="1rem">
         <FlexBetween>
           <Typography color={medium}>Who's viewed your profile</Typography>
           <Typography color={main} fontWeight="500">
@@ -112,10 +112,10 @@ const UserWidget = ({ userId, picturePath }) => {
         </FlexBetween>
       </Box>
 
-      <Divider />
+      <Divider /> */}
 
       {/* FOUR ROW */}
-      <Box p="1rem">
+      {/* <Box p="1rem">
         <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">
           Social Profiles
         </Typography>
@@ -144,7 +144,7 @@ const UserWidget = ({ userId, picturePath }) => {
           </FlexBetween>
           <EditOutlined sx={{ color: main }} />
         </FlexBetween>
-      </Box>
+      </Box> */}
     </WidgetWrapper>
   )
 }

@@ -63,7 +63,7 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="What is in your mind..."
+          placeholder="  What is in your mind..."
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
@@ -160,8 +160,9 @@ const MyPostWidget = ({ picturePath }) => {
           disabled={!post}
           onClick={handlePost}
           sx={{
-            color: palette.background.alt,
-            backgroundColor: palette.primary.main,
+            color: palette.neutral.mediumMain,
+            fontWeight: 'bold',
+            backgroundColor: palette.background.mediumGrey,
             borderRadius: '3rem',
           }}
         >
