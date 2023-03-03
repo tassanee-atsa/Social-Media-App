@@ -127,9 +127,9 @@ const Form = () => {
         resetForm,
       }) => (
         <form onSubmit={handleSubmit}>
+          <Box margin='3rem'>
           <Box
             display="grid"
-            margin='3rem'
             gap="30px"
             // Split the grid into 4 sections,
             //minimum 0, otherwise will spilt into equal fraction of 4
@@ -251,7 +251,8 @@ const Form = () => {
               fullWidth 
               type="submit"
               sx={{
-                m: '3rem',
+                mt: '3rem',
+                mb: '3rem',
                 p: '1rem',
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
@@ -280,7 +281,7 @@ const Form = () => {
                 : 'Already have an account? Login here'}
             </Typography>
           </Box>
-          
+          </Box>
         </form>
       )}
     </Formik>
