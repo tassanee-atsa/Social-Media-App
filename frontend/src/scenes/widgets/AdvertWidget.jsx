@@ -20,7 +20,7 @@ const AdvertWidget = () => {
         width="100%"
         height="auto"
         alt="advert"
-        src="http://localhost:3001/assets/pic2.jpeg"
+        src="http://localhost:3001/assets/pic1.jpeg"
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>
@@ -28,8 +28,7 @@ const AdvertWidget = () => {
         <Typography color={medium}>mikacosmetics.com</Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
-        Your pathway to stunning and immaculate beauty and made sure your skin
-        is exfoliating skin and shining like light.
+       Advert
       </Typography>
     </WidgetWrapper>
   );
