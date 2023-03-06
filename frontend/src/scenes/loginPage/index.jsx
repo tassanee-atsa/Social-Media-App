@@ -27,7 +27,7 @@ const LoginPage = () => {
         backgroundColor= {theme.palette.background.light}
         >
         <Typography fontWeight= '500' variant= 'h5' sx={{ mb: '1.5rem'}}>
-        Welcome to FriendPage. Start your social network here.
+        Welcome to FriendPage.
         </Typography> 
       </Box>
       <Box>
