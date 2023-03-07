@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom'
-import HomePage from './scenes/homePage' //In jsconfig.js, we have set up the term, so that dont need to do ../
+import HomePage from './scenes/homePage' 
 import LoginPage from './scenes/loginPage'
 import ProfilePage from './scenes/profilePage'
 import React, { useMemo } from 'react'
