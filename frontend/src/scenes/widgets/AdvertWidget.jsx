@@ -28,7 +28,7 @@ const AdvertWidget = () => {
         <Typography color={medium}>onlinebeautycourse.com</Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
-       Advertfsbdfd
+       Advert
       </Typography>
     </WidgetWrapper>
   );
