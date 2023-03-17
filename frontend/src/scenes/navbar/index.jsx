@@ -45,7 +45,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
   // Only available to the box component
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={mediumLight}>
-      <FlexBetween gap="1.75rem">
+      <FlexBetween gap="2.5rem">
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)" // 1rem is a minimum value for the font if screen size is too small,
@@ -59,17 +59,16 @@ const fullName = `${user.firstName} ${user.lastName}`;
             },
           }}
         >
-          Friendpage
+        ULink
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutrallight}
             borderRadius="9px"
-            gap="3rem"
+            // gap="3rem"
             padding="0.1rem 1.5rem" //Short-hand for 0.1 top and buttom, 1.5rem for right and left.
           >
-            <InputBase placeholder="Search..." />
-            <InputBase>
+            <InputBase placeholder="Search..." >
               <Search />
             </InputBase>
           </FlexBetween>
@@ -137,8 +136,9 @@ const fullName = `${user.firstName} ${user.lastName}`;
         >
           {/* CLOSE ICON */}
           <Box display="flex" justifyContent="flex-end" p="1rem">
-            <IconButton>
+            <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
+              >
               <Close />
             </IconButton>
           </Box>
