@@ -39,12 +39,15 @@ const Navbar = () => {
   const background = theme.palette.background.default
   const primaryLight = theme.palette.primary.light
   const mediumLight = theme.palette.background.mediumLight
+  const toggleOne = theme.palette.neutral.toggleOne
 
 
-const fullName = `${user.firstName} ${user.lastName}`;
+
+const fullName = `${user.firstName} ${user.lastName}`
+const firstName = `${user.firstName}`;
   // Only available to the box component
   return (
-    <FlexBetween padding="1rem 6%" backgroundColor={mediumLight}>
+    <FlexBetween padding="1rem 6%" backgroundColor={toggleOne}>
       <FlexBetween gap="2.5rem">
         <Typography
           fontWeight="bold"
@@ -59,9 +62,9 @@ const fullName = `${user.firstName} ${user.lastName}`;
             },
           }}
         >
-        ULink
+        Connect+
         </Typography>
-        {isNonMobileScreens && (
+        {/* {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutrallight}
             borderRadius="9px"
@@ -72,7 +75,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
               <Search />
             </InputBase>
           </FlexBetween>
-        )}
+        )} */}
       </FlexBetween>
 
       {/* DESKTOP NAV */}
@@ -85,13 +88,13 @@ const fullName = `${user.firstName} ${user.lastName}`;
               <LightMode sx={{ color: dark, fontSize: '25px' }} />
             )}
           </IconButton>
-          <Message sx={{ fontSize: '25px' }} />
+          {/* <Message sx={{ fontSize: '25px' }} />
           <Notifications sx={{ fontSize: '25px' }} />
-          <Help sx={{ fontSize: '25px' }} />
+          <Help sx={{ fontSize: '25px' }} /> */}
           {/* We can see the user log in and log out. */}
-          <FormControl variant="standard" value={fullName}>
+          <FormControl variant="standard" value={firstName}>
             <Select
-              value={fullName}
+              value={firstName}
               sx={{
                 backgoundColor: neutrallight,
                 width: '150px',
@@ -107,8 +110,8 @@ const fullName = `${user.firstName} ${user.lastName}`;
               }}
               input={<InputBase />}
             >
-              <MenuItem value={fullName}>
-                <Typography>{fullName}</Typography>
+              <MenuItem value={firstName}>
+                <Typography>{firstName}</Typography>
               </MenuItem>
               <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </Select>

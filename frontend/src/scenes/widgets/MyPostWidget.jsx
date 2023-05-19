@@ -35,8 +35,9 @@ const MyPostWidget = ({ picturePath }) => {
   const { _id } = useSelector((state) => state.user)
   const token = useSelector((state) => state.token)
   const isNonMobileScreens = useMediaQuery('(min-width: 1000px)')
-  const mediumMain = palette.neutral.mediumMain
   const medium = palette.neutral.medium
+  const toggleTextGrey = palette.neutral.toggleTextGrey
+
 
   const handlePost = async () => {
     const formData = new FormData();
@@ -124,16 +125,16 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween>
         {/* turn off and open image dropzone */}
         <FlexBetween gap="0.25rem" onClick={() => setIsImage(!isImage)}>
-          <ImageOutlined sx={{ color: medium }} />
+          <ImageOutlined sx={{ color:toggleTextGrey }} />
           <Typography
-            color={mediumMain}
+            color={toggleTextGrey}
             sx={{ '& : hover': { cusor: 'pointer', color: medium } }}
           >
             Image
           </Typography>
         </FlexBetween>
 
-        {isNonMobileScreens ? (
+        {/* {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25">
               <GifBoxOutlined sx={{ color: mediumMain }} />
@@ -154,15 +155,15 @@ const MyPostWidget = ({ picturePath }) => {
           <FlexBetween gap="0.25rem">
             <MoreHorizOutlined sx={{ color: mediumMain }} />
           </FlexBetween>
-        )}
+        )} */}
 
         <Button
           disabled={!post}
           onClick={handlePost}
           sx={{
-            color: palette.neutral.mediumMain,
+            color: palette.neutral.toggleTwo,
             fontWeight: 'bold',
-            backgroundColor: palette.background.mediumGrey,
+            backgroundColor: palette.background.light,
             borderRadius: '3rem',
           }}
         >

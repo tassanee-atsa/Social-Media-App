@@ -17,8 +17,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const { palette } = useTheme()
   const primaryLight = palette.primary.light
   const primaryDark = palette.primary.dark
-  const main = palette.neutral.main
-  const medium = palette.neutral.medium
+  const toggleThree = palette.neutral.toggleThree
 
 
   const isFriend = friends.find((friend) => friend._id === friendId);
@@ -51,8 +50,8 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           }}
         >
           <Typography
-            color={main}
-            variant="h5"
+            color={toggleThree}
+            variant="h6"
             fontWeight="500"
             sx={{
               '&:hover': {
@@ -63,7 +62,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           >
             {name}
           </Typography>
-          <Typography color={medium} fontSize="0.75rem">
+          <Typography color={toggleThree} fontSize="0.75rem">
             {subtitle}
           </Typography>
         </Box>

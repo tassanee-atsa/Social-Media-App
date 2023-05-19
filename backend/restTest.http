@@ -3,17 +3,17 @@
 GET http://localhost:3001/users
 content-type: application/json
 
-# {
-#     "firstName": "test",
-#     "lastName": "me",
-#     "email": "aaaaaaa@gmail.com",
-#     
-#     "picturePath": "pic1.jpeg",
-#     "friends": [],
-#     "location": "San Fran, CA",
-#     "occupation": "Software Engineer",
-#     "viewedProfile": 14561,
-#     "impressions": 100,    
-# }
-
+{
+    "firstName": "test",
+    "lastName": "me",
+    "email": "aaaaaaa@gmail.com",
+    "picturePath": "pic1.jpeg",
+    "password": "mypass",
+    "friends": ["king"],
+    "location": "San Fran, CA",
+    "occupation": "Software Engineer",
+    "viewedProfile": 14561,
+    "impressions": 100,    
+}
 ###
+

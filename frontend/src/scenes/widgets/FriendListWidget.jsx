@@ -11,6 +11,7 @@ const FriendListWidget = ({ userId }) => {
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
+  const toggleTextGrey = palette.neutral.toggleTextGrey
 
   const getFriends = async () => {
     const response = await fetch(
@@ -31,9 +32,9 @@ const FriendListWidget = ({ userId }) => {
   return (
     <WidgetWrapper>
       <Typography
-        color={palette.neutral.dark}
-        variant="h5"
-        fontWeight="500"
+        color={toggleTextGrey}
+        variant="h6"
+        fontWeight="550"
         sx={{ mb: "1.5rem" }}
       >
         Friend List

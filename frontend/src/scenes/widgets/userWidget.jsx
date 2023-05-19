@@ -19,8 +19,10 @@ const UserWidget = ({ userId, picturePath }) => {
   const navigate = useNavigate()
   const token = useSelector((state) => state.token)
   const dark = palette.neutral.dark
-  const medium = palette.neutral.medium
+  const toggleTextGrey = palette.neutral.toggleTextGrey
   const main = palette.neutral.main
+  const toggleThree = palette.neutral.toggleThree
+ 
 
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -62,19 +64,19 @@ const UserWidget = ({ userId, picturePath }) => {
           <UserImage image={picturePath} />
           <Box>
             <Typography
-              variant="h4"
-              color={dark}
-              fontWeight="500"
+              variant="h6"
+              color={toggleTextGrey}
+              fontWeight="550"
               sx={{
-                '&:hover': {
+                '&: hover': {
                   color: palette.primary.light,
-                  cusor: 'pointer',
+                  cursor: 'pointer',
                 },
               }}
             >
               {firstName} {lastName}
             </Typography>
-            <Typography color={medium}>{friends.length} friends </Typography>
+            <Typography color={toggleTextGrey}>{friends.length} friends </Typography>
           </Box>
         </FlexBetween>
         <ManageAccountsOutlined />
@@ -86,11 +88,11 @@ const UserWidget = ({ userId, picturePath }) => {
       <Box p="1rem 0">
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
           <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{location}</Typography>
+          <Typography color={toggleTextGrey}>{location}</Typography>
         </Box>
         <Box display="flex" alignItems="center" gap="1rem">
           <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{occupation}</Typography>
+          <Typography color={toggleTextGrey}>{occupation}</Typography>
         </Box>
       </Box>
 
