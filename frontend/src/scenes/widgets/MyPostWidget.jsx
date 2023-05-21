@@ -70,8 +70,9 @@ const MyPostWidget = ({ picturePath }) => {
           value={post}
           sx={{
             width: '100%',
-            color: palette.neutral.main,
+            color: palette.neutral.toggleTwo,
             backgroundColor: palette.neutral.light,
+            fontWeight: 500,
             borderRadius: '2rem',
             padding: '1rem 2 rem',
           }}
