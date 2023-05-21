@@ -69,6 +69,7 @@ export const themeSettings = (mode) => {
               toggleTwo: colorTokens.grey[0],
               toggleThree: colorTokens.grey[0],
               toggleTextGrey: colorTokens.grey[100],
+              toggleTextBlack: colorTokens.grey[600],
             },
             background: {
               default: colorTokens.grey[500],
@@ -97,6 +98,7 @@ export const themeSettings = (mode) => {
               toggleTwo: colorTokens.grey[1000],
               toggleThree: colorTokens.grey[800],
               toggleTextGrey: colorTokens.grey[600],
+              toggleTextBlack: colorTokens.grey[600],
             },
             background: {
               default: colorTokens.grey[100],
