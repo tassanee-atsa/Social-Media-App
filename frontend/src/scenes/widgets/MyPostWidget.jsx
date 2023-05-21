@@ -36,6 +36,7 @@ const MyPostWidget = ({ picturePath }) => {
   const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const medium = palette.neutral.medium;
+  const toggleTextDark = palette.neutral.toggleTextDark;
   const toggleTextGrey = palette.neutral.toggleTextGrey;
 
   const handlePost = async () => {
@@ -63,14 +64,13 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="  What is in your mind..."
-          color=""
+          placeholder="  What is in your mind..." 
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
             width: "100%",
-            color: palette.neutral.toggleTwo,
-            backgroundColor: palette.neutral.light,
+            color: palette.neutral.toggleTextInput,
+            backgroundColor: palette.background.light,
             fontWeight: 500,
             borderRadius: "2rem",
             padding: "1rem 2 rem",
@@ -163,15 +163,15 @@ const MyPostWidget = ({ picturePath }) => {
           disabled={!post}
           onClick={handlePost}
           sx={{
-
-            backgroundColor: palette.background.light,
+            backgroundColor: palette.background.mediumLight,
             borderRadius: "3rem",
           }}
         >
           <Typography
-            color={toggleTextGrey}
-            sx={{ "& : hover": { cusor: "pointer", color: medium },
-            fontWeight: "bold" }}
+            color={toggleTextDark}
+            sx={{
+              fontWeight: "bold",
+            }}
           >
             POST
           </Typography>
