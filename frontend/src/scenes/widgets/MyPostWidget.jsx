@@ -65,10 +65,12 @@ const MyPostWidget = ({ picturePath }) => {
         <UserImage image={picturePath} />
         <InputBase
           placeholder="  What is in your mind..."
+          color=""
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
             width: '100%',
+            color: palette.neutral.main,
             backgroundColor: palette.neutral.light,
             borderRadius: '2rem',
             padding: '1rem 2 rem',

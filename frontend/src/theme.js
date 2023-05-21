@@ -64,7 +64,7 @@ export const themeSettings = (mode) => {
               main: colorTokens.grey[300],
               mediumMain: colorTokens.grey[300],
               medium: colorTokens.grey[300],
-              light: colorTokens.grey[50],
+              light: colorTokens.grey[500],
               darkGrey: colorTokens.grey[600],
               toggleTwo: colorTokens.grey[0],
               toggleThree: colorTokens.grey[0],
