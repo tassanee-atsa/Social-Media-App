@@ -38,7 +38,7 @@ const PostWidget = ({
   const toggleTextGrey = palette.neutral.toggleTextGrey
 
   const patchLike = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`https://socialmediaapp-five.vercel.app/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorisation: `Bearer ${token}`,
@@ -68,7 +68,7 @@ const PostWidget = ({
           height="auto"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75" }}
-          src={`http://localhost:3001/assets/${picturePath}`}
+          src={`https://socialmediaapp-five.vercel.app/assets/${picturePath}`}
         />
       )}
       {/* LIKES */}

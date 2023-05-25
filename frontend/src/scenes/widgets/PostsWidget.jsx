@@ -12,7 +12,7 @@ const PostsWidget = ({userId, isProfile = false}) => {
   const token = useSelector((state) => state.token)
 
   const getPosts = async () => {
-    const response = await fetch('http://localhost:3001/posts', {
+    const response = await fetch('https://socialmediaapp-five.vercel.app/posts', {
       method: 'GET',
       headers: { Authorisation: `Bearer ${token}` },
     })
@@ -23,7 +23,7 @@ const PostsWidget = ({userId, isProfile = false}) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`,
+      `https://socialmediaapp-five.vercel.app/posts/${userId}/posts`,
       {
         method: 'GET',
         headers: { Authorisation: `Bearer ${token}` },

@@ -25,7 +25,7 @@ const UserWidget = ({ userId, picturePath }) => {
  
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`https://socialmediaapp-five.vercel.app/users/${userId}`, {
       method: 'GET',
       headers: { Authorisation: `Bearer ${token}` },
     })
