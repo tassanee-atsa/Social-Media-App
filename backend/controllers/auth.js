@@ -41,6 +41,7 @@ export const register = async (req, res) => {
             viewProfile: Math.floor(Math.random()*10000),
             impressions: Math.floor(Math.random()*10000),
         });
+        console.log('made it to creating a new user', newUser)
         const savedUser = await newUser.save(); //To save the user
         res.status(201).json(savedUser); //If above does not error out, we will send the user status 201 with json saveUser
     } catch (err) {
