@@ -60,10 +60,10 @@ const Form = () => {
 
   const register = async (values, onSubmitProps) => {
     //This allows us to send form info with image
-    const formData = new FormData();
+    const formData = {};
     for (let value in values) {
       //Loop through every key value in values object
-      formData.append(value, values[value]);
+      formData[value] = values[value];
     }
 
     const imageData = new FormData();
@@ -79,17 +79,18 @@ const Form = () => {
     );
     const response = await data.json();
     console.log(response);
-    formData.append("picturePath", response.url);
+    formData.picturePath = response.url;
 
     const savedUserResponse = await fetch(
       "https://socialmediaapp-five.vercel.app/auth/register",
       {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       }
     );
     const savedUser = await savedUserResponse.json();
-    console.log("checkpicture", savedUser);
+    console.log("checkpicture", savedUserResponse);
     onSubmitProps.resetForm();
 
     if (savedUser) {
