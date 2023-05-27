@@ -35,7 +35,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
   useEffect(() => {
     getUser()
-  }, [])
+  }, []) //eslint-disable-line react-hooks/exhaustive-deps
   // When we enter the page, getUser will be called when this component is render for the first time.
   // to prevent page error. If there is no user, don't return anything yet. Or another way is to create loading state.
   if (!user) {
