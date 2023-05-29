@@ -161,8 +161,6 @@ const firstName = `${user.firstName}`;
                 <LightMode sx={{ color: dark, fontSize: '25px' }} />
               )}
             </IconButton>
-            <Message sx={{ fontSize: '25px' }} />
-            <Help sx={{ fontSize: '25px' }} />
             {/* We can see the user log in and log out. */}
             <FormControl variant="standard" value={fullName}>
               <Select
