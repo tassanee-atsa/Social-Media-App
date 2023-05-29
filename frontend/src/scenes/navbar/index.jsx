@@ -162,7 +162,6 @@ const firstName = `${user.firstName}`;
               )}
             </IconButton>
             <Message sx={{ fontSize: '25px' }} />
-            <Notifications sx={{ fontSize: '25px' }} />
             <Help sx={{ fontSize: '25px' }} />
             {/* We can see the user log in and log out. */}
             <FormControl variant="standard" value={fullName}>
