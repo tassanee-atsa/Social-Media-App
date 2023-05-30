@@ -164,7 +164,7 @@ const firstName = `${user.firstName}`;
             {/* We can see the user log in and log out. */}
             <FormControl variant="standard" value={fullName}>
               <Select
-                value={fullName}
+                value={firstName}
                 sx={{
                   backgoundColor: neutrallight,
                   width: '150px',
@@ -180,8 +180,8 @@ const firstName = `${user.firstName}`;
                 }}
                 input={<InputBase />}
               >
-                <MenuItem value={fullName}>
-                  <Typography>{fullName}</Typography>
+                <MenuItem value={firstName}>
+                  <Typography>{firstName}</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>
                   Log Out
