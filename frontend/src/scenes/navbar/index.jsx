@@ -11,12 +11,8 @@ import {
   useMediaQuery,
 } from '@mui/material'
 import {
-  Search,
-  Message,
   DarkMode,
   LightMode,
-  Notifications,
-  Help,
   Menu,
   Close,
 } from '@mui/icons-material'
