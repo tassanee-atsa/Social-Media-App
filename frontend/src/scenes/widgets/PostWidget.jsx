@@ -24,7 +24,7 @@ const PostWidget = ({
   likes,
   comments,
 }) => {
-  const [isComments, setIsComments] = useState(false);
+  // const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
 
   const token = useSelector((state) => state.token);
@@ -34,7 +34,6 @@ const PostWidget = ({
 
   const { palette } = useTheme();
   const primary = palette.primary.main;
-  const main = palette.neutral.main;
   const toggleTextGrey = palette.neutral.toggleTextGrey
 
   const patchLike = async () => {
