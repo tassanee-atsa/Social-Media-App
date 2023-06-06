@@ -1,48 +1,51 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setPosts } from '../../state'
-import PostWidget from './PostWidget'
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "../../state";
+import PostWidget from "./PostWidget";
 
-const PostsWidget = ({userId, isProfile = false}) => {
+const PostsWidget = ({ userId, isProfile = false, useExperiment = false }) => {
   console.log(userId);
-  console.log('isProfile:', isProfile)
-  const dispatch = useDispatch()
-  const posts = useSelector((state) => state.posts)
-  const token = useSelector((state) => state.token)
+  console.log("isProfile:", isProfile);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts);
+  const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch('https://socialmediaapp-five.vercel.app/posts', {
-      method: 'GET',
-      headers: { Authorisation: `Bearer ${token}` },
-    })
+    const response = await fetch(
+      "https://socialmediaapp-five.vercel.app/posts",
+      {
+        method: "GET",
+        headers: { Authorisation: `Bearer ${token}` },
+      }
+    );
 
-    const data = await response.json()
-    dispatch(setPosts({ posts: data }))
-  }
+    const data = await response.json();
+    dispatch(setPosts({ posts: data }));
+  };
 
   const getUserPosts = async () => {
     const response = await fetch(
       `https://socialmediaapp-five.vercel.app/posts/${userId}/posts`,
       {
-        method: 'GET',
+        method: "GET",
         headers: { Authorisation: `Bearer ${token}` },
-      },
-    )
+      }
+    );
 
-    const data = await response.json()
-    dispatch(setPosts({ posts: data }))
-  }
+    const data = await response.json();
+    dispatch(setPosts({ posts: data }));
+  };
 
   useEffect(() => {
     if (isProfile) {
-      getUserPosts()
+      getUserPosts();
     } else {
-      getPosts()
+      getPosts();
     }
-  }, []) //eslint-disable-line react-hooks/exhaustive-deps
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log('posts: ', posts);
+  console.log("posts: ", posts);
 
   return (
     <>
@@ -60,21 +63,21 @@ const PostsWidget = ({userId, isProfile = false}) => {
           comments,
         }) => (
           <PostWidget
-          key = {_id}
-          postId={_id}
-          postUserId={userId}
-          name={`${firstName} ${lastName}`}
-          description={description}
-          location={location}
-          picturePath={picturePath}
-          userPicturePath={userPicturePath}
-          likes={likes}
-          comments={comments}
+            key={_id}
+            postId={_id}
+            postUserId={userId}
+            name={`${firstName} ${lastName}`}
+            description={useExperiment && description}
+            location={location}
+            picturePath={picturePath}
+            userPicturePath={userPicturePath}
+            likes={likes}
+            comments={comments}
           />
-        ),
+        )
       )}
     </>
-  )
-}
+  );
+};
 
-export default PostsWidget
+export default PostsWidget;

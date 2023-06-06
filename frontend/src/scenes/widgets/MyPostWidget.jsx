@@ -44,8 +44,19 @@ const MyPostWidget = ({ picturePath }) => {
     formData.append("userId", _id);
     formData.append("description", post);
     if (image) {
-      formData.append("picture", image);
-      formData.append("picturePath", image.name);
+      const imageData = new FormData();
+      imageData.append("file", image);
+      imageData.append("upload_preset", "nqjhmhge");
+  
+      const data = await fetch(
+        "https://api.cloudinary.com/v1_1/dh4pxqnsc/image/upload",
+        {
+          method: "POST",
+          body: imageData,
+        }
+      );
+      const response = await data.json();
+      formData.append("picturePath", response.url);
     }
 
     const response = await fetch(`https://socialmediaapp-five.vercel.app/posts`, {
@@ -135,29 +146,6 @@ const MyPostWidget = ({ picturePath }) => {
             Image
           </Typography>
         </FlexBetween>
-
-        {/* {isNonMobileScreens ? (
-          <>
-            <FlexBetween gap="0.25">
-              <GifBoxOutlined sx={{ color: mediumMain }} />
-              <Typography color={mediumMain}>Clip</Typography>
-            </FlexBetween>
-
-            <FlexBetween gap="0.25">
-              <AttachFileOutlined sx={{ color: mediumMain }} />
-              <Typography color={mediumMain}>Attachment</Typography>
-            </FlexBetween>
-
-            <FlexBetween gap="0.25">
-              <MicOutlined sx={{ color: mediumMain }} />
-              <Typography color={mediumMain}>Audio</Typography>
-            </FlexBetween>
-          </>
-        ) : (
-          <FlexBetween gap="0.25rem">
-            <MoreHorizOutlined sx={{ color: mediumMain }} />
-          </FlexBetween>
-        )} */}
 
         <Button
           disabled={!post}
