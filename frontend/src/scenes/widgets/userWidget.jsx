@@ -18,10 +18,10 @@ const UserWidget = ({ userId, picturePath }) => {
   const { palette } = useTheme()
   const navigate = useNavigate()
   const token = useSelector((state) => state.token)
-  const dark = palette.neutral.dark
+
   const toggleTextGrey = palette.neutral.toggleTextGrey
   const main = palette.neutral.main
-  const toggleThree = palette.neutral.toggleThree
+
  
 
   const getUser = async () => {
