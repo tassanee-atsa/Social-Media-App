@@ -154,7 +154,8 @@ const Form = () => {
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               //Target the div of above key values as a child component
               sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" }, //span 4 will take the whole grid of 4
+                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+                 //span 4 will take the whole grid of 4
               }}
             >
               {isRegister && (
@@ -165,11 +166,13 @@ const Form = () => {
                     onChange={handleChange}
                     value={values.firstName}
                     name="firstName"
+                    
                     error={
                       Boolean(touched.firstName) && Boolean(errors.firstName)
                     }
                     helperText={touched.firstName && errors.firstName}
                     sx={{ gridColumn: "span 2" }}
+                    
                   />
                   <TextField
                     label="Last Name"
@@ -276,8 +279,9 @@ const Form = () => {
                   mt: "3rem",
                   mb: "3rem",
                   p: "1rem",
-                  backgroundColor: palette.primary.main,
+                  backgroundColor: palette.primary.dark,
                   color: palette.background.alt,
+                  fontWeight: 600,
                   "&: hover": { color: palette.primary.main },
                 }}
               >
