@@ -30,8 +30,6 @@ const Navbar = () => {
   const background = theme.palette.background.mediumGrey;
   const primaryLight = theme.palette.primary.light;
   const toggleOne = theme.palette.neutral.toggleOne;
-  const toggleTwo = theme.palette.neutral.toggleTwo;
-
 
   const firstName = `${user.firstName}`;
   // Only available to the box component
@@ -117,7 +115,6 @@ const Navbar = () => {
             justifyContent="flex-end"
             p="1rem"
             margin="0rem 0rem 2rem 0rem"
-            
           >
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}

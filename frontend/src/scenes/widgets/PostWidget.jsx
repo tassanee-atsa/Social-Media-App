@@ -58,7 +58,7 @@ const PostWidget = ({
         subtitle={location}
         userPicturePath={userPicturePath}
       />
-      <Typography color={toggleTextGrey} sx={{ my: "1rem " }}>
+      <Typography color={toggleTextGrey} sx={{ my: "1rem" }}>
         {description}
       </Typography>
       {picturePath && (
@@ -93,9 +93,6 @@ const PostWidget = ({
           </FlexBetween> */}
         </FlexBetween>
 
-        {/* <IconButton>
-          <ShareOutlined />
-        </IconButton> */}
       </FlexBetween>
       {/* {isComments && (
         <Box mt="0.5rem">
