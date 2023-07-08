@@ -25,8 +25,8 @@ const AdvertWidget = () => {
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>
-        <Typography color={main}>It Course Online</Typography>
-        <Typography color={medium}>ITcourses.com</Typography>
+        <Typography color={main}>Beauty Clinic</Typography>
+        <Typography color={medium}>https://beautyclinic.co.uk/</Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
        Advert
